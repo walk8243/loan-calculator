@@ -1,0 +1,38 @@
+{
+  "name": "@walk8243/loan-calculator",
+  "version": "1.0.0",
+  "description": "ローンの返済額を計算する",
+  "main": "dist/index.js",
+  "bin": {
+    "@walk8243/loan-calculator": "bin/app"
+  },
+  "scripts": {
+    "build": "npx tsc --build",
+    "clean": "npx tsc --build --clean",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walk8243/loan-calculator.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "walk8243",
+    "email": "walk8243@gmail.com",
+    "url": "https://www.walk8243.xyz"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walk8243/loan-calculator/issues"
+  },
+  "homepage": "https://github.com/walk8243/loan-calculator#readme",
+  "dependencies": {
+    "commander": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.5"
+  }
+}
