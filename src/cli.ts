@@ -9,13 +9,18 @@ program
 	.description('ローンの返済額を計算する')
 	.version('1.0.0', '-v, --version', 'バージョンを表示する')
 	.helpOption('-h, --help', 'ヘルプを表示する')
-	.action(() => {
+	.option('-c, --corpus <corpus>', '元金（万円）')
+	.option('-i, --interest <interest>', '金利（年利％）')
+	.option('-t, --term <term>', 'ローン年数（年）', '35')
+	.option('-b, --bonus [bonus]', 'ボーナス払いの割合（％）', '0')
+	.action(({ term, bonus, corpus, interest }) => {
 		const input: LoanSetting = {
-			corpus: 3000,
-			interest: 1.3,
-			bonus: 0.4,
-			term: 35,
+			corpus: Number.parseInt(corpus),
+			interest: Number.parseFloat(interest),
+			bonus: Number.parseInt(bonus) / 100,
+			term: Number.parseInt(term),
 		};
+		console.log('LoanSetting', input);
 		const result = calculate(input);
 
 		console.log(`元金　　: ${result.corpus}万円`);

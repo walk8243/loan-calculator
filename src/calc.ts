@@ -1,12 +1,12 @@
 export const calculateNormal = (input: LoanVar): LoanNormalResult => {
 	const corpus = input.corpus * 10000;
-	const paymentCount = input.term * 12;
+	const paymentTimes = input.term * 12;
 	const monthlyInterest = input.interest * 100 / 12 / 100 / 100;
-	const chargeScale = (1 + monthlyInterest) ** paymentCount;
-	console.log({ paymentCount, monthlyInterest, chargeScale });
+	const chargeScale = (1 + monthlyInterest) ** paymentTimes;
+	console.log('calculateNormal', { paymentTimes, monthlyInterest, chargeScale });
 
 	const monthlyPayment = Math.floor((corpus * monthlyInterest * chargeScale) / (chargeScale - 1));
-	const amountPayment = monthlyPayment * paymentCount;
+	const amountPayment = monthlyPayment * paymentTimes;
 	return {
 		monthly: monthlyPayment,
 		amount: amountPayment,
@@ -19,13 +19,13 @@ export const calculateBonus = (input: LoanVar): LoanBonusResult => {
 	}
 
 	const corpus = input.corpus * 10000;
-	const paymentCount = input.term * 2;
+	const paymentTimes = input.term * 2;
 	const bonusInterest = input.interest * 100 / 2 / 100 / 100;
-	const chargeScale = (1 + bonusInterest) ** paymentCount;
-	console.log({ paymentCount, bonusInterest, chargeScale });
+	const chargeScale = (1 + bonusInterest) ** paymentTimes;
+	console.log('calculateBonus', { paymentTimes, bonusInterest, chargeScale });
 
 	const bonusPayment = Math.floor((corpus * bonusInterest * chargeScale) / (chargeScale - 1));
-	const amountPayment = bonusPayment * paymentCount;
+	const amountPayment = bonusPayment * paymentTimes;
 	return {
 		bonus: bonusPayment,
 		amount: amountPayment,
