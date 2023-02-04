@@ -13,6 +13,7 @@ program
 		const input: LoanSetting = {
 			corpus: 3000,
 			interest: 1.3,
+			bonus: 0.4,
 			term: 35,
 		};
 		const result = calculate(input);
@@ -24,6 +25,7 @@ program
 		console.log('=================================');
 
 		console.log(`毎月返済額: ${result.monthly}円`);
+		console.log(`ボーナス返済額: ${result.bonus}円`);
 		console.log(`総支払額　: ${result.amount}円`);
 	});
 
