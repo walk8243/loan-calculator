@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npx tsc --build",
     "clean": "npx tsc --build --clean",
-    "start": "node .",
+    "start": "node dist/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx tsc --watch"
   },
