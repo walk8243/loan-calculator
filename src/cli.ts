@@ -1,8 +1,10 @@
 import { Command } from 'commander';
+import { debug } from 'debug';
 import { calculate } from './index';
 import type { LoanSetting } from './calc';
 
 const program = new Command();
+const log = debug('@walk8243/loan-calculator:cli');
 
 program
 	.name('@walk8243/loan-calculator')
@@ -20,7 +22,7 @@ program
 			bonus: Number.parseInt(bonus) / 100,
 			term: Number.parseInt(term),
 		};
-		console.log('LoanSetting', input);
+		log('LoanSetting', input);
 		const result = calculate(input);
 
 		console.log(`元金　　: ${result.corpus}万円`);

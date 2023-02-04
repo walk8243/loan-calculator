@@ -1,9 +1,12 @@
+import { debug } from 'debug';
+const log = debug('@walk8243/loan-calculator:calc');
+
 export const calculateNormal = (input: LoanVar): LoanNormalResult => {
 	const corpus = input.corpus * 10000;
 	const paymentTimes = input.term * 12;
 	const monthlyInterest = input.interest * 100 / 12 / 100 / 100;
 	const chargeScale = (1 + monthlyInterest) ** paymentTimes;
-	console.log('calculateNormal', { paymentTimes, monthlyInterest, chargeScale });
+	log('calculateNormal', { paymentTimes, monthlyInterest, chargeScale });
 
 	const monthlyPayment = Math.floor((corpus * monthlyInterest * chargeScale) / (chargeScale - 1));
 	const amountPayment = monthlyPayment * paymentTimes;
@@ -22,7 +25,7 @@ export const calculateBonus = (input: LoanVar): LoanBonusResult => {
 	const paymentTimes = input.term * 2;
 	const bonusInterest = input.interest * 100 / 2 / 100 / 100;
 	const chargeScale = (1 + bonusInterest) ** paymentTimes;
-	console.log('calculateBonus', { paymentTimes, bonusInterest, chargeScale });
+	log('calculateBonus', { paymentTimes, bonusInterest, chargeScale });
 
 	const bonusPayment = Math.floor((corpus * bonusInterest * chargeScale) / (chargeScale - 1));
 	const amountPayment = bonusPayment * paymentTimes;
