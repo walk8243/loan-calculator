@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "ローンの返済額を計算する",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "@walk8243/loan-calculator": "bin/app"
   },
   "scripts": {
-    "build": "npx tsc --build",
+    "build": "npx tsc --sourceMap false --removeComments true --declaration true",
     "clean": "npx tsc --build --clean",
+    "pack": "npm pack",
+    "package": "run-s clean build pack",
     "start": "node dist/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx tsc --watch"
   },
   "engines": {
-    "node": ">=14.x"
+    "node": "^18.12.0 || ^16.13.0"
   },
   "repository": {
     "type": "git",
@@ -38,6 +41,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.7",
     "@types/node": "^18.11.18",
+    "npm-run-all": "^4.1.5",
     "typescript": "^4.9.5"
   }
 }
