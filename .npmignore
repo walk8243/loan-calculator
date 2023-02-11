@@ -107,3 +107,6 @@ src
 
 # TypeScript config file
 tsconfig.json
+
+# pack file
+walk8243-loan-calculator-*.tgz
