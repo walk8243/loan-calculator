@@ -11,3 +11,8 @@ export const calculate = (input: LoanSetting): Loan => {
 		amount: normalResult.amount + bonusResult.amount,
 	});
 };
+
+export {
+	calculateNormal,
+	calculateBonus,
+}
