@@ -1,6 +1,6 @@
 {
   "name": "@walk8243/loan-calculator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "ローンの返済額を計算する",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

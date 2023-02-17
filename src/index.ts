@@ -1,5 +1,6 @@
 import { calculateNormal, calculateBonus } from './calc';
 import type { Loan, LoanSetting } from './calc';
+export * from './strictly';
 
 export const calculate = (input: LoanSetting): Loan => {
 	if(!input.bonus) { input.bonus = 0; }
@@ -15,4 +16,4 @@ export const calculate = (input: LoanSetting): Loan => {
 export {
 	calculateNormal,
 	calculateBonus,
-}
+};
