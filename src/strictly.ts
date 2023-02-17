@@ -3,6 +3,10 @@ import type { LoanVar } from './calc';
 const log = debug('@walk8243/loan-calculator:strictly');
 
 export const calcStrictly = (input: LoanStrictlySetting): LoanResultUnit[] => {
+	if(input.corpus === 0) {
+		return Array.from({ length: input.term }, () => ({ perTime: 0, amount: 0, balance: 0 }));
+	}
+
 	const result = [];
 	for(let term=input.term,corpus=input.corpus*10000; term>0; term--) {
 		const unit = calcStrictlyPerYear({ corpus, interest: input.interest, term, timesPerYear: input.timesPerYear });
